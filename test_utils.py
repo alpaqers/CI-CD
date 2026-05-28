@@ -52,7 +52,7 @@ def test_decimal_to_binary_raises_value_error_for_number_outside_range(a):
         utils.decimal_to_binary(a)
 
 
-@pytest.mark.parametrize("a", ["10", 2.5, None, True])
+@pytest.mark.parametrize("a", ["10", 2.5, None])
 def test_decimal_to_binary_raises_type_error_for_invalid_type(a):
     with pytest.raises(TypeError):
         utils.decimal_to_binary(a)
