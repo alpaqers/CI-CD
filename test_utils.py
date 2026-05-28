@@ -30,3 +30,29 @@ def test_multiply(a, b, expected):
 def test_divide(a, b, expected):
     result = utils.divide(a, b)
     assert result == expected
+
+
+@pytest.mark.parametrize(
+    "a, expected",
+    [
+        (0, "0"),
+        (1, "1"),
+        (2, "10"),
+        (5, "101"),
+        (10, "1010"),
+    ],
+)
+def test_decimal_to_binary_returns_correct_binary_value(a, expected):
+    assert utils.decimal_to_binary(a) == expected
+
+
+@pytest.mark.parametrize("a", [-1, 101, 150])
+def test_decimal_to_binary_raises_value_error_for_number_outside_range(a):
+    with pytest.raises(ValueError):
+        utils.decimal_to_binary(a)
+
+
+@pytest.mark.parametrize("a", ["10", 2.5, None])
+def test_decimal_to_binary_raises_type_error_for_invalid_type(a):
+    with pytest.raises(TypeError):
+        utils.decimal_to_binary(a)
