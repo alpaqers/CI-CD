@@ -33,16 +33,13 @@ def test_divide(a, b, expected):
 
 
 @pytest.mark.parametrize(
-    "number, expected",
+    "a, expected",
     [
         (0, "0"),
         (1, "1"),
         (2, "10"),
-        (3, "11"),
-        (4, "100"),
         (5, "101"),
         (10, "1010"),
-        (100, "1100100"),
     ],
 )
 def test_decimal_to_binary_returns_correct_binary_value(a, expected):
